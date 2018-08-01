@@ -1,7 +1,7 @@
-# Deploy Xooa sample to Xooa backend
+# Deploy Xooa sample to Xooa platform
 Xooa samples are repos already available in Github under Xooa org. Deploying this on Xooa backend gives you access to APIs to interact with the chanicode logic written with these samples. 
 
-1. Go to Xooa backend webservice located at <https://d3u0qtw0cf1xi7.cloudfront.net/#>
+1. Go to Xooa platform located at <https://dashboard.xooa.com/>
 2. **Login** to the platform. If you dont have an account, you can click on **Sign Up** to create a new account. Once logged in, you will be taken to the main Xooa dashboard. 
 3. From the main dashboard, click on **Deploy New** on top left corner to start the deployment process.
 3. The first step is to connect your new Xooa login to your Github account. In the main dashboard you should see the **Connect to Git** option. Click it and in the new browser window that opens up, allow Xooa to access your github account.
@@ -11,9 +11,17 @@ Xooa samples are repos already available in Github under Xooa org. Deploying thi
 7. Sit back and relax while Xooa sets up the backend. Once Xooa is finished with the process you will see **Success** for all the process listed on screen.
 8. You will be redirected to app dashboard once the deployment is complete.
 
-# Connecting UI with Xooa backend
+## API token and App ID
+To connect UI with this deployed app, we will need the API token and App ID, both of which are provided by Xooa platform.
 
-Prerequisite: You will need to have deployed the vehicle-manufacture-network on the Xooa backend before following the steps below. You can check the steps located at <https://github.com/Xooa/vehicle-manufacture-main>
+### App ID
+From the app dashboard, click on `Basic Information` tab to see app details. Here you will see `App ID` listed. Copy this to a safe location on your computer.
+
+### API token
+From the app dashboard, click on `Identities` tab to see all identities enabled to work with the deployed app. For the identity listed, click on **Show API Token** and copy the token to a safe location on your computer.
+
+# Connecting UI with Xooa platform
+Now we will be cloning the UI repo. This will be connected to the app we deployed on Xooa platform
 
 
 1. Go to your home folder
@@ -28,24 +36,22 @@ git clone https://github.com/Xooa/vehicle-manufacture.git
 ```
 cd vehicle-manufacture/config/
 ```
-4. Open the config file `default.json` with your favourite text editor and modify the `webSocketURL` and `httpURL`
+4. Open the config file `default.json` with your favourite text editor and modify the `webSocketURL` and `httpURL` by replacing `APP_ID` with the app ID we copied above
 ```
 {
   "restServer": {
-      // These will change once we move to a production domain
-      "webSocketURL": "wss://sandeepapi.tk/api/sandeepxooa5tsmuwxph",
-      "httpURL": "https://sandeepapi.tk/api/sandeepxooa5tsmuwxph"
+      "webSocketURL": "wss://api.xooa.com/api/APP_ID",
+      "httpURL": "https://api.xooa.com/api/APP_ID"
   }
 }
 ```
-5. Add another key-pair called `authToken`. This token is copied from the API token that you get when deploying the vehicle-manufacture-network on Xooa backend. If you are not familiar with this then go to <> and follow the steps. Your `default.json` file should now look as below
+5. Add another key-pair called `authToken`. Here replace `YOUR_API_TOKEN` with the API token we copied above. Your `default.json` file should now look as below
 ```
 {
   "restServer": {
-      // These will change once we move to a production domain
-      "webSocketURL": "wss://sandeepapi.tk/api/sandeepxooa5tsmuwxph",
-      "httpURL": "https://sandeepapi.tk/api/sandeepxooa5tsmuwxph",
-      "authToken": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcGlLZXkiOiJRQVNYQ0JNLUM0MTRaNk0tSEdSQ1pNUS1KUFdEVDZSIiwiQXBpU2VjcmV0IjoiQjdYMk9TSEJ0VldpQ1lqIiwiaWF0IjoxNTMxMjIwMTAyfQ.SnIV4MX3eNluVkeXtmKeVgEnv1Lt9Ni04DMtAqvN1ZI"  
+      "webSocketURL": "wss://api.xooa.com/api/APP_ID",
+      "httpURL": "https://api.xooa.com/api/APP_ID",
+      "authToken": "bearer YOUR_API_TOKEN"  
   }
 }
 ```
