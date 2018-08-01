@@ -59,15 +59,14 @@ cd vehicle-manufacture/config/
 ```
 cd ..
 ```
-7. Initialize a new empty git repo and commit
+7. Commit the changes to `default.json` by running the command below
 ```
-git init
-git add .
-git commit -m "Initial commit. Added chaincode App ID and API token"
+git add config/default.json
+git commit -m "Added chaincode App ID and API token"
 ```
 8. Login to your github account and create a new repo called `vehicle-manufacture`. Copy the link for repo. Now go back to the terminal and add the link in place of `GITHUB_REPO_LINK` below and run the command
 ```
-git remote add origin GITHUB_REPO_LINK
+git remote set-url origin GITHUB_REPO_LINK
 git push -u origin master
 ```
 
