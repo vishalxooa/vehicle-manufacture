@@ -1,0 +1,4 @@
+chaincodes:
+  vehicle-manufacturing:
+    path: /composer-app/
+    language: composer
