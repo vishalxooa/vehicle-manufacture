@@ -55,3 +55,31 @@ cd vehicle-manufacture/config/
   }
 }
 ```
+6. Go back to the root of our working directory
+```
+cd ..
+```
+7. Initialize a new empty git repo and commit
+```
+git init
+git add .
+git commit -m "Initial commit. Added chaincode App ID and API token"
+```
+8. Login to your github account and create a new repo called `vehicle-manufacture`. Copy the link for repo. Now go back to the terminal and add the link in place of `GITHUB_REPO_LINK` below and run the command
+```
+git remote add origin GITHUB_REPO_LINK
+git push -u origin master
+```
+
+## Deploying on Heroku
+
+1. Login/Signup to Heroku and navigate to new app menu located at <https://dashboard.heroku.com/new-app>.
+2. Enter a relevant app name and click `Create App`.
+3. On the next page, you will see a lot of sections about the app. Scroll down till you find `Deployment Method`
+4. Select `Github` as the deployment method. A new section `Connect to Github` will load below.
+5. Click on button `Connect to Github` and authorize Heroku to access your github.
+6. `Connect to Github` sectin will now list all your repositories. Search for vehicle-manufacture-main and hit search.
+7. Once the search lods, you will see the repo listed below. Click on the `Connect` button.
+8. Two sections `Automatic deploys` and `Manual deploy` will show up. In the `Manual deploy` section, selected the master branch and click `Deploy Branch`.
+9. Heroku will connect to github, host your app and then deploy it.
+10. Once the process is done, you will see `View` button. Click it to load the app in your browser and bam! Congratulations!!!, you will see the app hosted and accessible from your browser.
