@@ -1,6 +1,7 @@
 {
   "restServer": {
-      "webSocketURL": "ws://localhost:3000",
-      "httpURL": "http://localhost:3000/api"
+      "webSocketURL": "wss://api.xooa.com/api/vishalxooagckadmbah",
+      "httpURL": "https://api.xooa.com/api/vishalxooagckadmbah",
+      "authToken": "bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJBcGlLZXkiOiJOVlZNUDJULURNTTRaM0ctS0MwWjUzMC1OOFFTVjVOIiwiQXBpU2VjcmV0IjoiUnZ3QjNoRzQ3OEhvZ0hTIiwiaWF0IjoxNTMzMTA3NDQ4fQ.Lu7itZ8zsfqj4TvHLQA14JmXr4_25zsz92T0BXpnbgM"
   }
 }
